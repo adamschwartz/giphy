@@ -8,8 +8,17 @@
 </head>
 <body style="background-color: #000; background-image: url(img/splash.png)"></body>
 <script>
+  var usernames = [
+    'technoir',
+    'mrdiv',
+    'vincemckelvie',
+    'erdalinci'
+  ];
+
+  var username = usernames[Math.floor(Math.random() * usernames.length)];
+
   function slideshow() {
-      $.getJSON("http://api.giphy.com/v1/gifs/artist/screensaver?username=mrdiv&api_key=wBL1FvTTel6OQ", null, function(response) {
+      $.getJSON("http://api.giphy.com/v1/gifs/artist/screensaver?username=" + username + "&api_key=wBL1FvTTel6OQ", null, function(response) {
           var image = response.data.image_original_url;
           $('body').css('background-image', 'url(' + image + ')');
       });

@@ -6,7 +6,7 @@
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/jquery.animate-enhanced.min.js"></script>
 </head>
-<body style="background-color: #000; background-image: url(img/splash.png); background-position: 50% 50%"></body>
+<body style="background-color: #000; background-image: url(img/splash.png)"></body>
 <script>
   var usernames = [
     'technoir',
@@ -21,6 +21,7 @@
       $.getJSON("http://api.giphy.com/v1/gifs/artist/screensaver?username=" + username + "&api_key=wBL1FvTTel6OQ", null, function(response) {
           var image = response.data.image_original_url;
           $('body').css('background-image', 'url(' + image + ')');
+          $('body').css('background-position', '50% 0');
       });
   };
   setInterval(slideshow, 7000);

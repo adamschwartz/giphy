@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Giphy Saver</title>
+  <meta charset="utf-8" />
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.animate-enhanced.min.js"></script>
+</head>
+<body style="background-color: #000; background-image: url(img/splash.png)"></body>
+<script>
+  function slideshow() {
+      $.getJSON("http://api.giphy.com/v1/gifs/artist/screensaver?username=mrdiv&api_key=wBL1FvTTel6OQ", null, function(response) {
+          var image = response.data.image_original_url;
+          $('body').css('background-image', 'url(' + image + ')');
+      });
+  };
+  setInterval(slideshow, 7000);
+</script>
+</html>

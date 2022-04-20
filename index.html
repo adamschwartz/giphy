@@ -19,11 +19,13 @@
 
   var username = usernames[Math.floor(Math.random() * usernames.length)];
 
+  var i = 0;
   function slideshow() {
-      $.getJSON("//api.giphy.com/v1/gifs/artist/screensaver?username=" + username + "&api_key=wBL1FvTTel6OQ", null, function(response) {
+      $.getJSON("//api.giphy.com/v1/gifs/artist/screensaver?username=" + username + "&api_key=wBL1FvTTel6OQ&" + i, null, function(response) {
           var image = response.data.images.original.url;
           $('body').css('background-image', 'url(' + image + ')');
           $('body').css('background-position', '50% 0');
+          i += 1;
       });
   };
   setInterval(slideshow, 7000);
